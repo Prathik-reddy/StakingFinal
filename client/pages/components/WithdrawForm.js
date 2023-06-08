@@ -1,13 +1,13 @@
 import React from 'react';
 import { useWeb3Contract } from 'react-moralis';
-import StakingAbi from '../constants/Staking.json';
-import TokenAbi from '../constants/RewardToken.json';
+import StakingAbi from '../../constants/Staking.json';
+import TokenAbi from '../../constants/RewardToken.json';
 import { Form } from 'web3uikit';
 import { ethers } from 'ethers';
 
 function WithdrawForm() {
-  const stakingAddress = "0x27e09782DdD45e9f6BBc3C6ACF6a722D09eB5d63";
-  const tesTokenAddress = "0xCe0c4324e9FFED0E151AfEb45d143095E8bE1471";
+  const stakingAddress = "0xC3ab35225f9Bb65d5534513cE21e68bd8E160017";
+  const tesTokenAddress = "0xAE70e9751B17C9a1d88bF3362879aF576Ec5eB0a";
 
   const { runContractFunction } = useWeb3Contract();
 
