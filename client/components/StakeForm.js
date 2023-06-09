@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWeb3Contract } from 'react-moralis';
-import StakingAbi from '../../constants/Staking.json';
-import TokenAbi from '../../constants/RewardToken.json';
+import StakingAbi from '../constants/Staking.json';
+import TokenAbi from '../constants/RewardToken.json';
 import { Form } from 'web3uikit';
 import { ethers } from 'ethers';
 

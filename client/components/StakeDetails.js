@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useMoralis, useWeb3Contract } from 'react-moralis';
-import StakingAbi from "../../constants/Staking.json"
-import TokenAbi from '../../constants/RewardToken.json';
+import StakingAbi from "../constants/Staking.json"
+import TokenAbi from '../constants/RewardToken.json';
 import StakeForm from './StakeForm';
 import WithdrawForm from './WithdrawForm';
 
