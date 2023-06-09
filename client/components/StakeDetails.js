@@ -11,7 +11,7 @@ function StakeDetails() {
   const [stakedBalance, setStakedBalance] = useState("0");
   const [earnedBalance, setEarnedBalance] = useState("0");
 
-  const stakingAddress = "0xf1b6D2f3b7b593aF5446b3b1B82015a700bDAE28";
+  const stakingAddress = "0x68F6b2240448b6ac6FFaE2665D4a843c0108937E";
   const chicTokenAddress = "0xeC75F71C0E61CAA48EfA889ad2b541fDad91e33b";
 
   const { runContractFunction: getctBalance } = useWeb3Contract({
@@ -69,7 +69,6 @@ function StakeDetails() {
     const tx = await claimEarnedReward({
       onError: (error) => console.log(error),
     });
-    // await tx.wait(0);
     console.log("Tx executed");
   };
 

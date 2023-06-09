@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <div className="bg-[url('../public/images/stars.png')] bg-blue-950 z-10">
+        <div className="bg-[url('../public/images/stars.png')] bg-blue-950 z-50">
           <Header />
           <StakeDetails />
           <Footer></Footer>
