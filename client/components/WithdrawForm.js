@@ -6,8 +6,8 @@ import { Form } from 'web3uikit';
 import { ethers } from 'ethers';
 
 function WithdrawForm() {
-  const stakingAddress = "0xC3ab35225f9Bb65d5534513cE21e68bd8E160017";
-  const tesTokenAddress = "0xAE70e9751B17C9a1d88bF3362879aF576Ec5eB0a";
+  const stakingAddress = "0xf1b6D2f3b7b593aF5446b3b1B82015a700bDAE28";
+  const tesTokenAddress = "0xCe0c4324e9FFED0E151AfEb45d143095E8bE1471";
 
   const { runContractFunction } = useWeb3Contract();
 

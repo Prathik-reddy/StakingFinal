@@ -4,14 +4,14 @@ import StakingAbi from "../constants/Staking.json";
 import TokenAbi from "../constants/RewardToken.json";
 import StakeForm from "./StakeForm";
 import WithdrawForm from "./WithdrawForm";
-
+import ChicNFTMinter from "./ChicNFTMinter";
 function StakeDetails() {
   const { account, isWeb3Enabled } = useMoralis();
   const [ctBalance, setctBalance] = useState("0");
   const [stakedBalance, setStakedBalance] = useState("0");
   const [earnedBalance, setEarnedBalance] = useState("0");
 
-  const stakingAddress = "0x27e09782DdD45e9f6BBc3C6ACF6a722D09eB5d63";
+  const stakingAddress = "0xf1b6D2f3b7b593aF5446b3b1B82015a700bDAE28";
   const chicTokenAddress = "0xeC75F71C0E61CAA48EfA889ad2b541fDad91e33b";
 
   const { runContractFunction: getctBalance } = useWeb3Contract({
@@ -95,7 +95,7 @@ function StakeDetails() {
         await getEarnedBalance({ onError: (error) => console.log(error) })
       ).toString();
       const formattedEarnedBalance = parseFloat(earnedBalance / 1e18);
-      const formattedEarnedBalanceRounded = formattedEarnedBalance.toFixed(18);
+      const formattedEarnedBalanceRounded = formattedEarnedBalance.toFixed(15);
       setEarnedBalance(formattedEarnedBalanceRounded);
     }
 
@@ -103,7 +103,7 @@ function StakeDetails() {
   }, [account, stakedBalance, earnedBalance, isWeb3Enabled]);
   return (
     <>
-      <div className="h-full w-full bg-opacity-100 border border-gray-100 z-50">
+      <div className=" h-full w-full bg-opacity-100 border border-gray-100">
         <div className="bg-blue-950 text-center w-9/12 m-auto my-10 rounded-xl border-4">
           <div className="border-b-2 border-neutral-100 px-6  dark:border-neutral-300 dark:text-neutral-50 m-auto text-3xl ">
             Stake Chic Tokens
@@ -140,6 +140,23 @@ function StakeDetails() {
               </span>
             </button>
           </div>
+        </div>
+      </div>
+      <div className="h-full w-full bg-opacity-100 border border-gray-100">
+        <div className="bg-blue-950 text-center w-9/12 m-auto my-10 rounded-xl border-4">
+          <div className="border-b-2 border-neutral-100 px-6  dark:border-neutral-300 dark:text-neutral-50 m-auto text-3xl ">
+            Mint Dynamic NFT's
+          </div>
+          <div className="p-6">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+              Mint your Dynamic CHIC NFT
+            </h5>
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+              Your Dynamic CHIC NFT's
+            </h5>
+            <ChicNFTMinter />
+          </div>
+
         </div>
       </div>
     </>

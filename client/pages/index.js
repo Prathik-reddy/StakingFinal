@@ -14,7 +14,6 @@ export default function Home() {
         <div className="bg-[url('../public/images/stars.png')] bg-blue-950 z-10">
           <Header />
           <StakeDetails />
-          <ChicNFTMinter />
           <Footer></Footer>
           <NotificationContainer />
         </div>

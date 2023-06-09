@@ -4,11 +4,8 @@ const footer = () => {
   return (
     <footer className="bg-white shadow sm:flex sm:items-center sm:justify-between p-4 sm:p-6 xl:p-8 dark:bg-gray-800 ">
       <div className="flex flex-row">
-        <Image
-          src="/images/logo.png" width={200}
-          height={50}
-          alt="Picture of the author" />
-        <p className="text-gray-500 dark:text-gray-400 sm:mb-0 text-xl font-bold p-2 ">
+        <p className="text-xl text-white">Made by - Prathik & MoonMan</p>
+        <p className="text-gray-500 dark:text-gray-400 sm:mb-0 text-xl font-bold px-2">
           All rights reserved.
         </p>
       </div>
@@ -42,7 +39,7 @@ const footer = () => {
           <div className="tooltip-arrow" data-popper-arrow></div>
         </div>
         <a
-          href="#"
+          href="https://twitter.com/GSDamana"
           data-tooltip-target="tooltip-twitter"
           className="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer dark:text-gray-400 dark:hover:text-white hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-600"
         >
@@ -113,7 +110,7 @@ const footer = () => {
         <div
           id="tooltip-dribbble"
           role="tooltip"
-          className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-red-700"
+          className="inline-block absolute invisible z-10 py-2 px-3 text-sm font-medium text-white bg-gray-900 rounded-lg shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700"
         >
           Follow us on Dribbble
           <div className="tooltip-arrow" data-popper-arrow></div>

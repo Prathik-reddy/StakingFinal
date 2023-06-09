@@ -143,32 +143,50 @@ const ChicNFTMinter = () => {
   };
 
   return (
-    <div className="p-10">
-      <h1>Mint your Dynamic CHIC NFT</h1>
+    <div className="p-3">
       <div className="m-1">
-        <p className="mb-4">Your dNFTs</p>
-        <div className="mb-2">
+        <div className="grid grid-cols-2" >
           {tokensOwned.length > 0 ? (
             tokensOwned.map((token) => (
               <div key={token.token}>
-                <p>{`TokenId: ${token.token}`}</p>
-                <p>{`Description: ${token.description}`}</p>
+                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                  TokenId: {token.token}
+                </h5>
+                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                  {`Description: ${token.description}`}
+                </h5>
                 <img
                   src={token.image}
                   height="400px"
                   width="400px"
-                  className="rounded-lg"
+                  className="rounded-lg mx-auto"
                 />
                 <br />
               </div>
             ))
           ) : (
-            <p>You don't have any NFTS. Mint one right now!!</p>
+
+            <>
+            <div>
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                You don't have any NFT's . Mint one right now!
+              </h5>
+            </div>
+            <div>
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                Please mint your dNft now.
+              </h5>
+            </div>
+            </>
+
           )}
         </div>
       </div>
-
+      <hr />
       <div>
+        <h5 className="my-8 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+          Want to Mint dNFT?
+        </h5>
         <input
           className="mx-4 p-3 rounded-lg"
           type="text"
@@ -177,7 +195,6 @@ const ChicNFTMinter = () => {
             setMintingAddress(e.target.value);
           }}
         />
-
         <button
           className="bg-purple-400 rounded-lg p-3"
           onClick={async () => {
