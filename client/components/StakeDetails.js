@@ -104,35 +104,35 @@ function StakeDetails() {
     <>
       <div className=" h-full w-full bg-opacity-100 border border-gray-100">
         <div className="bg-blue-950 text-center w-9/12 m-auto my-10 rounded-xl border-4">
-          <div className="border-b-2 border-neutral-100 px-6  dark:border-neutral-300 dark:text-neutral-50 m-auto text-3xl ">
+          <div className="border-b-2 border-neutral-100 px-6 text-neutral-50 m-auto text-3xl ">
             Stake Chic Tokens
           </div>
           <div className="p-6">
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
               Chic Balance is: {ctBalance} CHIC
             </h5>
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
               Staked Balance is: {stakedBalance} CHIC
             </h5>
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
               Earned Balance is: {earnedBalance} CHIC
             </h5>
           </div>
-          <div className="border-t-2 border-neutral-100 px-6 py-3 dark:border-neutral-300 dark:text-neutral-50">
+          <div className="border-t-2 px-6 py-3 border-neutral-300 text-neutral-50">
             <div className="bg-dark shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
               <div className="-mx-3 md:flex mb-6">
                 <StakeForm></StakeForm>
                 <WithdrawForm></WithdrawForm>
               </div>
             </div>
-            <div className="border-b-2 border-neutral-100  dark:border-neutral-300 dark:text-neutral-50 text-3xl mb-20"></div>
+            <div className="border-b-2 border-neutral-300 text-neutral-50 text-3xl mb-20"></div>
 
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
               You have Earned : {earnedBalance} CHIC till now.
             </h5>
             <button
               onClick={claimReward}
-              className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg hover:text-white dark:text-white"
+              className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg hover:text-whitetext-white"
             >
               <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-yellow-500 rounded-md group-hover:bg-opacity-0">
                 Claim Reward
@@ -143,19 +143,18 @@ function StakeDetails() {
       </div>
       <div className="h-full w-full bg-opacity-100 border border-gray-100">
         <div className="bg-blue-950 text-center w-9/12 m-auto my-10 rounded-xl border-4">
-          <div className="border-b-2 border-neutral-100 px-6  dark:border-neutral-300 dark:text-neutral-50 m-auto text-3xl ">
+          <div className="border-b-2 px-6 border-neutral-300 text-neutral-50 m-auto text-3xl ">
             Mint Dynamic NFT's
           </div>
           <div className="p-6">
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
               Mint your Dynamic CHIC NFT
             </h5>
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
               Your Dynamic CHIC NFT's
             </h5>
             <ChicNFTMinter />
           </div>
-
         </div>
       </div>
     </>

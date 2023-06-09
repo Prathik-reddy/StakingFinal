@@ -61,8 +61,6 @@ const ChicNFTMinter = () => {
 
       const owner = await ownerOf({ params: ownerOfCallParams });
 
-      //   console.log(owner, account);
-
       if (owner.toLowerCase() == account.toLowerCase()) {
         const { description, image } = await getTokenMetadata(i);
         userTokens.push({
@@ -134,7 +132,6 @@ const ChicNFTMinter = () => {
     };
 
     const uri = await tokenURI({ params: tokenURICallOptions });
-    // console.log(uri);
 
     const { data: metadata } = await axios.get(uri);
     console.log(metadata);
@@ -149,10 +146,10 @@ const ChicNFTMinter = () => {
           {tokensOwned.length > 0 ? (
             tokensOwned.map((token) => (
               <div key={token.token}>
-                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
                   TokenId: {token.token}
                 </h5>
-                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
                   {`Description: ${token.description}`}
                 </h5>
                 <img
@@ -168,12 +165,12 @@ const ChicNFTMinter = () => {
 
             <>
             <div>
-              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
                 You don't have any NFT's . Mint one right now!
               </h5>
             </div>
             <div>
-              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+              <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-50">
                 Please mint your dNft now.
               </h5>
             </div>

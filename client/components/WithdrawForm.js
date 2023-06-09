@@ -55,27 +55,6 @@ function WithdrawForm() {
 
   return (
     <>
-      {/* <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-        <label
-          className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-          htmlFor="grid-first-name"
-        >
-          Enter amount to withdraw
-        </label>
-        <input
-          className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3 text-black"
-          id="grid-first-name"
-          type="number"
-          min="0"
-          placeholder="Eg : 2.5 ETH"
-        />
-        <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-            WithDraw Tokens
-          </span>
-        </button>
-      </div> */}
-
       <div className='text-black w-1/2 mt-2 lg:mt-0 px-3' >
         <Form className='flex flex-col justify-end'
           onSubmit={handleWithdrawSubmit}
