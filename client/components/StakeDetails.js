@@ -1,99 +1,106 @@
-import React, { useEffect, useState } from 'react';
-import { useMoralis, useWeb3Contract } from 'react-moralis';
-import StakingAbi from "../constants/Staking.json"
-import TokenAbi from '../constants/RewardToken.json';
-import StakeForm from './StakeForm';
-import WithdrawForm from './WithdrawForm';
+import React, { useEffect, useState } from "react";
+import { useMoralis, useWeb3Contract } from "react-moralis";
+import StakingAbi from "../constants/Staking.json";
+import TokenAbi from "../constants/RewardToken.json";
+import StakeForm from "./StakeForm";
+import WithdrawForm from "./WithdrawForm";
 
 function StakeDetails() {
   const { account, isWeb3Enabled } = useMoralis();
-  const [ctBalance, setctBalance] = useState('0');
-  const [stakedBalance, setStakedBalance] = useState('0');
-  const [earnedBalance, setEarnedBalance] = useState('0');
+  const [ctBalance, setctBalance] = useState("0");
+  const [stakedBalance, setStakedBalance] = useState("0");
+  const [earnedBalance, setEarnedBalance] = useState("0");
 
-  const stakingAddress = "0xC3ab35225f9Bb65d5534513cE21e68bd8E160017";
-  const chicTokenAddress = "0xAE70e9751B17C9a1d88bF3362879aF576Ec5eB0a";
+  const stakingAddress = "0x27e09782DdD45e9f6BBc3C6ACF6a722D09eB5d63";
+  const chicTokenAddress = "0xeC75F71C0E61CAA48EfA889ad2b541fDad91e33b";
 
   const { runContractFunction: getctBalance } = useWeb3Contract({
     abi: TokenAbi.abi,
     contractAddress: chicTokenAddress,
-    functionName: 'balanceOf',
+    functionName: "balanceOf",
     params: {
-      account
-    }
+      account: account,
+    },
   });
 
   const { runContractFunction: getStakedBalance } = useWeb3Contract({
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'getStaked',
+    functionName: "getStaked",
     params: {
-      account
-    }
+      account: account,
+    },
   });
 
   const { runContractFunction: getEarnedBalance } = useWeb3Contract({
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'earned',
+    functionName: "earned",
     params: {
-      account
-    }
+      account: account,
+    },
   });
 
   const { runContractFunction: claimEarnedReward } = useWeb3Contract({
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'claimReward',
+    functionName: "claimReward",
   });
 
   const { runContractFunction: withdrawTokens } = useWeb3Contract({
     abi: StakingAbi.abi,
     contractAddress: stakingAddress,
-    functionName: 'withdraw',
-    params: {
-
-    }
+    functionName: "withdraw",
+    params: {},
   });
 
   const claimReward = async (e) => {
     e.preventDefault();
     console.log("Executing tx ....");
-    const tx = await claimEarnedReward({ onError: (error) => console.log(error) });
+    const tx = await claimEarnedReward({
+      onError: (error) => console.log(error),
+    });
     console.log("Tx executed");
-  }
+  };
 
   const withdraw = async (e) => {
     e.preventDefault();
     console.log("Executing tx ....");
-    const tx = await claimEarnedReward({ onError: (error) => console.log(error) });
+    const tx = await claimEarnedReward({
+      onError: (error) => console.log(error),
+    });
     // await tx.wait(0);
     console.log("Tx executed");
-  }
-
-
+  };
 
   useEffect(() => {
     async function updateUiValues() {
-      const ctBalance = (await getctBalance({ onError: (error) => console.log(error) })).toString();
+      const ctBalance = (
+        await getctBalance({
+          onError: (error) => console.log(error),
+        })
+      ).toString();
       const formattedctBalance = parseFloat(ctBalance) / 1e18;
       const formattedRtBalaceRounded = formattedctBalance.toFixed(2);
       setctBalance(formattedRtBalaceRounded);
 
-      const stakedBalace = (await getStakedBalance({ onError: (error) => console.log(error) })).toString();
+      const stakedBalace = (
+        await getStakedBalance({ onError: (error) => console.log(error) })
+      ).toString();
       const formattedStakedBalance = parseFloat(stakedBalace) / 1e18;
       const formattedStakedBalanceRounded = formattedStakedBalance.toFixed(2);
       setStakedBalance(formattedStakedBalanceRounded);
 
-      const earnedBalance = (await getEarnedBalance({ onError: (error) => console.log(error) })).toString();
+      const earnedBalance = (
+        await getEarnedBalance({ onError: (error) => console.log(error) })
+      ).toString();
       const formattedEarnedBalance = parseFloat(earnedBalance / 1e18);
       const formattedEarnedBalanceRounded = formattedEarnedBalance.toFixed(18);
       setEarnedBalance(formattedEarnedBalanceRounded);
     }
 
     if (isWeb3Enabled) updateUiValues();
-
-  }, [account, stakedBalance, earnedBalance, getEarnedBalance, getctBalance, getStakedBalance, isWeb3Enabled]);
+  }, [account, stakedBalance, earnedBalance, isWeb3Enabled]);
   return (
     <>
       <div className="h-full w-full bg-opacity-100 border border-gray-100 z-50">
@@ -124,7 +131,10 @@ function StakeDetails() {
             <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
               You have Earned : {earnedBalance} CHIC till now.
             </h5>
-            <button onClick={claimReward} className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg hover:text-white dark:text-white">
+            <button
+              onClick={claimReward}
+              className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg hover:text-white dark:text-white"
+            >
               <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-yellow-500 rounded-md group-hover:bg-opacity-0">
                 Claim Reward
               </span>
